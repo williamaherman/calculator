@@ -2,7 +2,7 @@ import csv
 from Fileutilities.absolutepath import absolutepath
 
 
-def classFactory(class_name, dictionary):
+def classfactory(class_name, dictionary):
     return type(class_name, (object,), dictionary)
 
 
@@ -21,5 +21,5 @@ class CsvReader:
     def return_data_as_class(self, class_name):
         objects = []
         for row in self.data:
-            objects.append(classFactory(class_name, row))
+            objects.append(classfactory(class_name, row))
         return objects
