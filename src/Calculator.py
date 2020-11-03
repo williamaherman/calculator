@@ -37,8 +37,8 @@ class CSVStats(Calculator):
     data = []
 
     def __init__(self, data_file):
+        super().__init__()
         self.data = CsvReader(data_file)
-        pass
 
     def mean(self):
         mean(self.data)
