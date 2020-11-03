@@ -7,7 +7,7 @@ class MyTestCase(unittest.TestCase):
 
     def setUp(self) -> None:
         self.calculator = Calculator()
-        testData = CsvReader('UnitTestAddition.csv').data
+        testData = CsvReader('Unit Test Addition.csv').data
 
     def test_instantiate_calculator(self):
         self.assertIsInstance(self.calculator, Calculator)
@@ -22,7 +22,6 @@ class MyTestCase(unittest.TestCase):
     def test_subtract_method_calculator(self):
         self.assertEqual(self.calculator.subtract(2, 2), 0)
         self.assertEqual(self.calculator.result, 0)
-
 
 if __name__ == '__main__':
     unittest.main()
