@@ -7,8 +7,8 @@ class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.calculator = Calculator()
 
-    def test_instantiate_calculator(self, calculator=None):
-        self.assertIsInstance(calculator, Calculator)
+    def test_instantiate_calculator(self):
+        self.assertIsInstance(self.calculator, Calculator)
 
 
     def test_results_property_calculator(self):
