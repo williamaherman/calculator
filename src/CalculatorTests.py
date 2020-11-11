@@ -1,52 +1,13 @@
 import unittest
 
 from Calculator import Calculator
-from CsvReader import CsvReader
+from CsvReader import CsvReader, ClassFactory
 
 
 class MyTestCase(unittest.TestCase):
 
     def setUp(self) -> None:
         self.calculator = Calculator()
-
-    def test_instantiate_calculator(self):
-        self.assertIsInstance(self.calculator, Calculator)
-
-    def test_add_method_calculator_success(self):
-        self.assertEqual(self.calculator.add(1.36,2.78), 4.14)
-
-    def test_add_method_calculator_zero(self):
-        self.assertEqual(self.calculator.add(-1.11, 1.11), 0)
-
-    def test_subtract_method_calculator_success(self):
-        self.assertEqual(self.calculator.subtract(4, 10), 6)
-
-    def test_subtract_method_calculator_zero(self):
-        self.assertEqual(self.calculator.subtract(4, 4), 0)
-
-    def test_multiply_method_calculator_success(self):
-        self.assertEqual(self.calculator.multiply(5, 5), 25)
-
-    def test_multiply_method_calculator_zero(self):
-        self.assertEqual(self.calculator.multiply(5, 0), 0)
-
-    def test_divide_method_calculator_success(self):
-        self.assertEqual(self.calculator.divide(5, 20), 4)
-
-    def test_divide_method_calculator_zero(self):
-        self.assertEqual(self.calculator.divide(5, 0), 0)
-
-    def test_square_method_calculator_success(self):
-        self.assertEqual(self.calculator.square(5), 25)
-
-    def test_square_method_calculator_negative(self):
-        self.assertEqual(self.calculator.square(-5), 25)
-
-    def test_square_root_method_calculator_success(self):
-        self.assertEqual(self.calculator.square_root(25), 5)
-
-    def test_square_root_method_calculator_success_decimal(self):
-        self.assertEqual(self.calculator.square_root(39.99), 6.3237647)
 
     def test_subtraction(self):
         test_data = CsvReader("Tests/Data/UnitTestSubtraction.csv").data
