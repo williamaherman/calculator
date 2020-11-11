@@ -1,18 +1,35 @@
+
 import unittest
 from CsvReader import CsvReader, ClassFactory
+
 
 class MyTestCase(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.csv_reader = CsvReader('Tests/Data/employee_birthday.csv')
+        self.csv_reader = CsvReader('src/UnitTestAddition.csv')
 
     def test_return_data_as_objects(self):
-        people = self.csv_reader.return_data_as_class('person')
-        self.assertIsInstance(people, list)
-        test_class = ClassFactory('person', self.csv_reader.data[0])
+        value1 = self.csv_reader.return_data_as_class('Value 1')
+        value2 = self.csv_reader.return_data_as_class('Value 2')
+        result = self.csv_reader.return_data_as_class('result')
 
-        for person in people:
-            self.assertEqual(person.__name__, test_class.__name__)
+        self.assertIsInstance(value1, list)
+        self.assertIsInstance(value2, list)
+        self.assertIsInstance(result, list)
+
+        test_class1 = ClassFactory('Value 1', self.csv_reader.data[0])
+        test_class2 = ClassFactory('Value 2', self.csv_reader.data[0])
+        test_class3 = ClassFactory('result', self.csv_reader.data[0])
+
+        for value in value1:
+            self.assertEqual(value.__name__, test_class1.__name__)
+
+        for value in value2:
+            self.assertEqual(value.__name__, test_class2.__name__)
+
+        for value in result:
+            self.assertEqual(value.__name__, test_class3.__name__)
+
 
 if __name__ == '__main__':
     unittest.main()
